@@ -1,0 +1,20 @@
+name: 'Magazine'
+description: 'Magazine theme for oc-dynamedia-posts'
+author: 'Dynamedia (Rob Ballantyne)'
+homepage: 'https://dynamedia.uk'
+authorCode: Dynamedia
+code: postsdemo
+parent: ''
+database: '0'
+require:
+    - RainLab.Translate
+    - RainLab.Pages
+    - Dynamedia.Posts
+postsBackendCss: /themes/postsdemo/assets/css/dist/backend-posts.css
+translate: config/lang.yaml
+form:
+    tabs:
+        fields:
+            googleanalytics_id:
+                tab: Detail
+                label: 'Google Analytics ID'

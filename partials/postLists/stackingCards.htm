@@ -1,0 +1,63 @@
+{% if component|length %}
+    {% set posts=component.posts %}
+{% endif %}
+
+{% if title %}
+<div class="row">
+    <div class="col-sm-12">
+        <div class="d-flex position-relative float-left">
+            <h3 class="">{{ title }}</h3>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<div class="row">
+    {% set count = 'count-' ~ posts|length %}
+    {% set mod2 = 'mod2-' ~ (posts|length % 2) %}
+    {% set mod3 = 'mod3-' ~ (posts|length % 3) %}
+    {% set mod4 = 'mod4-' ~ (posts|length % 4) %}
+    <div class="col-12">
+    <div class="card-deck full-width {{ count }} {{ mod2 }} {{ mod3}} {{ mod4 }}">
+    {% for post in posts %}
+        <div class="card">
+            <div class="card-img-top position-relative image-hover">
+                {% partial "helpers/image"
+                    image = post.images.list.default
+                    responsive = post.images.list.responsive
+                    alt = post.images.list.alt
+                    class = " "  ~ post.images.list.class
+                    style= "width: 100%; object-fit:cover"
+                %}
+                {% partial 'helpers/image_label'
+                    post=post
+                    label=label
+                %}
+            </div>
+
+            <div class="card-body px-0 d-flex flex-column align-items-start h-100">
+                <div class="card-title">
+                    <h5 class="font-weight-bold">
+                        {{ post.title }}
+                    </h5>
+                </div>
+
+                {% if show_excerpt %}
+                <div class="fs-15 font-weight-normal flex-grow-1 align-content-start">
+                    {{ post.excerpt | raw }}
+                </div>
+                {% endif %}
+
+                {% if show_link %}
+                <div class="">
+                    <a href="{{ post.url }}" class="font-weight-bold text-dark pt-2"
+                    >Read Article</a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+    {% endfor %}
+    </div>
+    </div>
+</div>

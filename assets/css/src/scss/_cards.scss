@@ -1,0 +1,186 @@
+/* Cards */
+
+.card {
+  box-shadow: $card-box-shadow;
+  -webkit-box-shadow: $card-box-shadow;
+  -moz-box-shadow: $card-box-shadow;
+  -ms-box-shadow: $card-box-shadow;
+  background: none;
+  border: none;
+  .card-body {
+    padding: $card-padding-y $card-padding-x;
+  }
+  &.card-hover {
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+    &:hover {
+      box-shadow: 0 1rem 2.5rem rgba(22, 28, 45, 0.1), 0 0.5rem 1rem -0.75rem rgba(22, 28, 45, 0.1);
+      transform: translate3d(0, -3px, 0);
+    }
+  }
+    &.featured-post {
+        img {
+            height: 25rem;
+            @include media-breakpoint-up(lg) {
+                height: 35rem;
+            }
+        }
+    }
+}
+
+.card-deck.full-width {
+    .card {
+        min-width: 10rem;
+        @include media-breakpoint-up(md) {
+            min-width: 14rem;
+        }
+        img {
+            height: 18rem;
+            @include media-breakpoint-up(sm) {
+                height: 14rem;
+            }
+        }
+    }
+    &.mod2-1 {
+        // Small & medium screen has 2 cards width. Fix layout for x cards / 2
+        @include media-breakpoint-only(sm) {
+            img {
+                height: 9rem;
+            }
+            .card:nth-of-type(1) {
+                // First card will take up full container width
+                min-width: 28rem;
+                img {
+                    height: 18rem;
+                }
+            }
+        }
+
+        @include media-breakpoint-only(md) {
+            img {
+                height: 12rem;
+            }
+            .card:nth-of-type(1) {
+                // First card will take up full container width
+                min-width: 28rem;
+                img {
+                    height: 24rem;
+                }
+            }
+        }
+    }
+    // Large screen has 3 cards width by default
+    // Single remainder (first card full width)
+    &.mod3-1 {
+        @include media-breakpoint-only(lg) {
+            .card:nth-of-type(1) {
+                min-width: 43rem;
+                img {
+                    height: 26rem;
+                }
+            }
+        }
+    }
+    // Two remainder (2 cards first)
+    &.mod3-2 {
+        @include media-breakpoint-only(lg) {
+            .card:nth-of-type(1), .card:nth-of-type(2) {
+                min-width: 28rem;
+                img {
+                    height: 18rem;
+                }
+            }
+        }
+    }
+    // XL screens have 4 cards by default
+    // Single remainder make first card full width
+    &.mod4-1 {
+        @include media-breakpoint-up(xl) {
+            .card:nth-of-type(1)  {
+                min-width: 54rem;
+                img {
+                    height: 32rem;
+                }
+            }
+        }
+    }
+    // Remainder 2 first two cards on one line
+    &.mod4-2 {
+        @include media-breakpoint-up(xl) {
+            .card:nth-of-type(1), .card:nth-of-type(2)  {
+                min-width: 28rem;
+                img {
+                    height: 20rem;
+                }
+            }
+        }
+    }
+    // Remainder 3 first three cards on one line
+    &.mod4-3 {
+        @include media-breakpoint-up(xl) {
+            .card:nth-of-type(1), .card:nth-of-type(2), .card:nth-of-type(3)  {
+                min-width: 18rem;
+                img {
+                    height: 12rem;
+                }
+            }
+        }
+    }
+}
+
+
+.card-deck.hero-list {
+    // Small, large and XL screens have width of 2 cards
+    .card {
+        min-width: 12rem;
+
+        img {
+            height: 10rem;
+        }
+    }
+    &.mod2-1 {
+        .card:nth-of-type(1) {
+            min-width: 26rem;
+            img {
+                height: 20rem;
+            }
+        }
+    }
+    &.mod3-1 {
+        @include media-breakpoint-only(md) {
+            .card:nth-of-type(1) {
+                min-width: 34rem;
+                img {
+                    height: 18rem;
+                }
+            }
+        }
+    }
+    &.mod3-2 {
+        @include media-breakpoint-only(md) {
+            .card:nth-of-type(1), .card:nth-of-type(2) {
+                min-width: 16rem;
+                img {
+                    height: 12rem;
+                }
+            }
+        }
+    }
+}
+
+.card-deck.picture-text-list {
+    // Small  2 cards, med+ 3 cards
+    .card {
+        min-width: 12rem;
+        img {
+            height: 14rem;
+            @include media-breakpoint-up(sm) {
+                height: 12rem;
+            }
+        }
+    }
+    // Text posts underneath
+    @include media-breakpoint-down(md) {
+        margin-bottom: 1rem;
+    }
+    // No includes for screen sizes - It's 6 pictures to use
+}

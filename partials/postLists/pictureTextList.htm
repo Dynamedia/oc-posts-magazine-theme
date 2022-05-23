@@ -1,0 +1,67 @@
+{% if component|length %}
+    {% set posts=component.posts %}
+{% endif %}
+
+{% set picturePosts = posts | slice(0,6) %}
+{% set textPosts = posts | slice(6) %}
+
+<div class="row">
+    <div class="col-lg-3">
+        <div class="d-flex position-relative float-left">
+            <h3 class="">{{ title }}</h3>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-9">
+        {% set count = 'count-' ~ listPosts|length %}
+        {% set mod2 = 'mod2-' ~ (listPosts|length % 2) %}
+        {% set mod3 = 'mod3-' ~ (listPosts|length % 3) %}
+        <div class="row">
+            <div class="col-12">
+            <div class="card-deck picture-text-list {{ count }} {{ mod2 }} {{ mod3}}">
+                {% for post in picturePosts %}
+                    <div class="card">
+                        <div class="card-img-top position-relative image-hover">
+                            {% partial "helpers/image"
+                                image = post.images.list.default
+                                responsive = post.images.list.responsive
+                                alt = post.images.list.alt
+                                class = "w-100 "  ~ heroPost.images.list.class
+                            %}
+                            {% partial 'helpers/image_label'
+                                post=post
+                                label=label
+                            %}
+                        </div>
+
+                        <h5 class="font-weight-600 mt-3 d-flex flex-grow-1">
+                            <a class="text-dark" href="{{ post.url }}">{{ post.title }}</a>
+                        </h5>
+                    </div>
+                {% endfor %}
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-3">
+        <div class="row">
+            {% for post in textPosts %}
+                <div class="col-sm-12 mb-3">
+                    <div class="{% if not loop.last %}border-bottom{% endif %} pb-3">
+                        <h5 class="font-weight-600 mt-0 mb-0">
+                            <a class="text-dark" href="{{ post.url }}">{{ post.title }}</a>
+                        </h5>
+                        <p class="text-color m-0 d-flex align-items-center">
+                            <span class="fs-12 mr-1">
+                                <a class="text-dark" href="{{ post.author.url }}">{{ post.author.full_name }}</a>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

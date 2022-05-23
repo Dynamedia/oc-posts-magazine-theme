@@ -1,0 +1,9 @@
+{% if post.primary_category and label == 'category' %}
+    <a href="{{ post.primary_category.url }}">
+        <span class="thumb-title">{{ post.primary_category.name | upper }}</span>
+    </a>
+{% elseif post.tags | length and label == 'tag' %}
+    <a href="{{ post.tags | first.url }}">
+        <span class="thumb-title">#{{ post.tags | first.name | upper }}</span>
+    </a>
+{% endif %}

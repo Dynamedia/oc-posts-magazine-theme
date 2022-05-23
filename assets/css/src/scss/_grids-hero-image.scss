@@ -1,0 +1,96 @@
+.hero-image-grid {
+    display: grid;
+    grid-auto-columns: 85%;
+    grid-template-rows: repeat(8, 25px);
+    grid-auto-flow: column;
+    overflow-x: scroll;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    grid-gap: 4px;
+    @include media-breakpoint-up(lg) {
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: repeat(8, 50px);
+        grid-auto-rows: 50px;
+        grid-auto-flow: row;
+        overflow-x: auto;
+    }
+
+    .box {
+        grid-area: span 8 / span 1;
+        background: rgb(0,0,0);
+        scroll-snap-align: start;
+        color: #fff;
+        position: relative;
+        padding: 0;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            min-width: 100%;
+            height: 100%;
+            min-height: 100%;
+            object-fit: cover;
+        }
+        .info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+            .category-badge {
+                display: inline-block;
+                padding: 4px;
+                border-radius: 2px;
+                margin-bottom: 5px;
+                background-color: rgba(0,0,0,0.5);
+                text-transform: capitalize;
+                font-size: 0.8rem;
+                a {
+                    color: #fff;
+                    &:hover {
+                        text-decoration: none;
+                    }
+                }
+            }
+            .author {
+                font-size: 0.7rem;
+                a {
+                    color: #fff;
+                }
+            }
+            .excerpt {
+                display: none;
+            }
+        }
+        &:hover {
+            .info {
+                .category-badge {
+                    background-color: $primary;
+                }
+            }
+        }
+
+        @include media-breakpoint-up(lg) {
+            grid-area: span 3 / span 2;
+            h3 {
+                font-size: 1.1rem;
+            }
+            &:nth-of-type(1) {
+                grid-area: span 8 / span 4;
+                h3 {
+                    font-size: 1.5rem;
+                }
+                .excerpt {
+                    display: block;
+                }
+            }
+            &:nth-of-type(2)  {
+                grid-area: span 5 / span 4;
+                h3 {
+                    font-size: 1.5rem;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,38 @@
+{% if component|length %}
+    {% set posts=component.posts %}
+{% endif %}
+
+
+<div class="row">
+    <div class="col-12 mb-4">
+        <div class="swiffy-slider carousel-full-width slider-nav-autoplay slider-nav-autopause">
+            <ul class="slider-container">
+                {% for post in posts %}
+                    <li>
+                        <div class="carousel-wrapper position-relative">
+                            {% partial "helpers/image"
+                                image = post.images.list.default
+                                responsive = post.images.list.responsive
+                                alt = post.images.list.alt
+                                class = " " ~ post.images.list.class
+                                style = ""
+                            %}
+                            <div class="carousel-content">
+                                <h4>{{ post.title }}</h4>
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+
+            <button type="button" class="slider-nav"></button>
+            <button type="button" class="slider-nav slider-nav-next"></button>
+
+            <div class="slider-indicators">
+                {% for post in posts %}
+                    <button {{ loop.first ? 'class="active"' : '' }}></button>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

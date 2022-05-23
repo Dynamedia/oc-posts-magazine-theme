@@ -1,0 +1,22 @@
+<li>
+    <button class="navbar-close">
+        <i class="mdi mdi-close"></i>
+    </button>
+</li>
+
+{% for item in items if not item.viewBag.isHidden %}
+    <li role="presentation" class="nav-item
+        {{ item.isActive ? 'active' : '' }}
+        {{ item.isChildActive ? 'child-active' : '' }}
+    ">
+        <a class="nav-link
+            {{ item.isActive ? 'active' : '' }}
+            {{ item.isChildActive ? 'child-active' : '' }}" href="{{ item.url }}">
+            {{ item.title }}
+        </a>
+    </li>
+{% endfor %}
+
+<li class="nav-item">
+    <a class="nav-link" href="#"><i class="mdi mdi-magnify"></i></a>
+</li>

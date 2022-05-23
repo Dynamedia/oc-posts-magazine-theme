@@ -1,0 +1,36 @@
+{% if component|length %}
+    {% set posts=component.posts %}
+{% endif %}
+
+{% if title %}
+    <div>
+        <h3 class="section-title"><span>{{ title }}</span></h3>
+    </div>
+{% endif %}
+
+<div class="hero-image-text-grid">
+    {% for post in posts %}
+        <div class="post-container {{ size }}">
+            <a href="{{ post.url }}">
+                {% partial "helpers/image"
+                    image = post.images.list.default
+                    responsive = post.images.list.responsive
+                    alt = post.images.list.alt
+                %}
+            </a>
+
+            <div class="info">
+                <a href="{{ post.url }}"><h3>{{ post.title }}</h3></a>
+                <span class="author">
+                        <a href="{{ post.author.profile.url }}">{{ post.author.full_name }}</a> -
+                        {{ post.publlished_at | date('M d, Y') }}
+                </span>
+                {% if show_excerpt %}
+                    <span class="excerpt">
+                        {{ post.excerpt | raw }}
+                </span>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+</div>

@@ -1,0 +1,11 @@
+.grid-sidebar-right {
+    display: grid;
+    margin-top: 30px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+    @include media-breakpoint-up(lg) {
+        grid-template-columns: 8fr 4fr;
+    }
+}

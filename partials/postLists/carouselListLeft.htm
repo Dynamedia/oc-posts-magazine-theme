@@ -1,0 +1,54 @@
+{% if component|length %}
+    {% set posts=component.posts %}
+{% endif %}
+
+{% set carouselPosts = posts | slice(0, posts|length - 4) %}
+{% set listPosts = posts | slice(posts|length - 4) %}
+<div class="carousel-list-left">
+    <div class="carousel swiffy-slider slider-nav-autoplay slider-nav-autopause">
+        <ul class="slider-container">
+            {% for post in carouselPosts %}
+                <li>
+                    <div class="carousel-wrapper">
+                        {% partial "helpers/image"
+                            image = post.images.list.default
+                            responsive = post.images.list.responsive
+                            alt = post.images.list.alt
+                            class = " " ~ post.images.list.class
+                            style = ""
+                        %}
+                        <div class="carousel-content">
+                            <h4>{{ post.title }}</h4>
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <button type="button" class="slider-nav"></button>
+        <button type="button" class="slider-nav slider-nav-next"></button>
+
+        <div class="slider-indicators">
+            {% for post in carouselPosts %}
+                <button {{ loop.first ? 'class="active"' : '' }}></button>
+            {% endfor %}
+        </div>
+    </div>
+
+
+    {% for post in listPosts %}
+        <div class="post">
+            <div class="avatar">
+                    <img
+                        src="{{ "assets/images/dashboard/Profile_1.jpg" | theme }}"
+                        alt="{{ post.author.full_name }} avatar"
+                    />
+                    <span>{{ post.author.full_name }}</span>
+            </div>
+            <p class="fs-14 mt-2 font-weight-medium line-height-sm">
+                {{ post.title }}
+            </p>
+        </div>
+    {% endfor %}
+
+</div>

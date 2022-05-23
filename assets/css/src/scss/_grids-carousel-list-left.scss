@@ -1,0 +1,51 @@
+.carousel-list-left {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+
+    @include media-breakpoint-up(sm) {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1fr;
+    }
+
+    @include media-breakpoint-up(lg) {
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+    }
+
+
+    .carousel {
+        grid-area: 1 / 1 / 1 / 1;
+        @include media-breakpoint-up(sm) {
+            grid-area: 1 / 1 / 2 / 3;
+        }
+        @include media-breakpoint-up(lg) {
+            grid-area: 1 / 1 / 5 / 5;
+        }
+    }
+
+    .post {
+        &:not(:nth-last-child(1)) {
+            border-bottom: 1px solid #eee;
+        }
+        @include media-breakpoint-between(sm, md) {
+            &:not(:nth-last-child(-1n+2)) {
+                border-bottom: 1px solid #eee;
+            }
+        }
+        .avatar {
+            img {
+                vertical-align: middle;
+                width: 25px;
+                height: 25px;
+                border-radius: 50%;
+            }
+
+            span {
+                font-size: 0.8rem;
+            }
+        }
+    }
+}

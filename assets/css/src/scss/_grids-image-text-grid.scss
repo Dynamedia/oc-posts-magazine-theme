@@ -1,0 +1,81 @@
+.image-text-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-column-gap: 4px;
+    grid-row-gap: 4px;
+    .post-container {
+        grid-column: span 12;
+        position: relative;
+    }
+
+    @include media-breakpoint-up(md) {
+        &.columns-2 .post-container {
+            grid-column: span 6;
+        }
+        &.columns-3 .post-container {
+            // cannot have 3 columns at this screen width
+            grid-column: span 6;
+        }
+        &.columns-4 .post-container {
+            // cannot have 4 columns at this screen width
+            grid-column: span 6;
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        &.columns-2 .post-container {
+            grid-column: span 6;
+        }
+        &.columns-3 .post-container {
+            grid-column: span 4;
+        }
+        &.columns-4 .post-container {
+            grid-column: span 3;
+        }
+    }
+
+    .post-container {
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .info {
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            padding:15px;
+            color: #fff;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+            a {
+                color: #fff;
+            }
+
+            .author {
+                display: inline-block;
+                padding-bottom: 10px;
+                font-size: 0.8rem;
+
+                a, a:hover, a:active {
+                    color: #fff;
+                }
+
+                a:hover, a:active {
+                    text-decoration: underline;
+                }
+            }
+
+            a:hover, a:active {
+                text-decoration: none;
+
+                h3 {
+                    color: $primary;
+                }
+            }
+        }
+
+    }
+}

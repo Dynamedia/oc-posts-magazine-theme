@@ -1,0 +1,56 @@
+{% if component|length %}
+    {% set posts=component.posts %}
+{% endif %}
+
+{% if title %}
+<div class="row">
+    <div class="col-sm-12">
+        <div class="d-flex position-relative float-left">
+            <h3 class="section-title">{{ title }}</h3>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<div class="row">
+    <div class="card-deck vertical p-3 pt-lg-0">
+    {% for post in posts %}
+        <div class="card">
+            <div class="card-img-top position-relative image-hover">
+                {% partial "helpers/image"
+                    image = post.images.list.default
+                    responsive = post.images.list.responsive
+                    alt = post.images.list.alt
+                    class = "img-fluid "  ~ post.images.list.class
+                %}
+                {% partial 'helpers/image_label'
+                    post=post
+                    label=label
+                %}
+            </div>
+
+            <div class="card-body px-0 d-flex flex-column align-items-start h-100">
+                <div class="card-title">
+                    <h5 class="font-weight-bold">
+                        {{ post.title }}
+                    </h5>
+                </div>
+
+                {% if show_excerpt %}
+                <div class="fs-15 font-weight-normal flex-grow-1 align-content-start">
+                    {{ post.excerpt | raw }}
+                </div>
+                {% endif %}
+
+                {% if show_link %}
+                <div class="">
+                    <a href="{{ post.url }}" class="font-weight-bold text-dark pt-2"
+                    >Read Article</a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+    {% endfor %}
+    </div>
+</div>

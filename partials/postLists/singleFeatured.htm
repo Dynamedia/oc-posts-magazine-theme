@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="col-12">
+        <a href="{{ post.url }}" class="w-100">
+            <div class="card featured-post">
+                <div class="card-img-top">
+                    {% partial "helpers/image"
+                        image = post.images.banner.default
+                        responsive = post.images.list.responsive
+                        alt = post.images.list.alt
+                        class = "w-100"  ~ post.images.list.class
+                    %}
+                </div>
+                <div class="card-footer" style="background-color: #1a1a1a; border-top: 4px solid #3e8177">
+                    <h5 class="text-center font-weight-600 text-light mt-3">
+                        {{ post.title }}
+                    </h5>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>

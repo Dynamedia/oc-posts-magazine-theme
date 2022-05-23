@@ -1,0 +1,25 @@
+/* Pagination */
+
+.pagination {
+    justify-content: center;
+  .page-item {
+    .page-link {
+      border-color: $border-color;
+      color: $text-muted;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 15px 15px;
+    }
+    .active {
+      color: white;
+    }
+    &.active,
+    &:hover,
+    &:focus,
+    &:active {
+      .page-link {
+        color: white;
+      }
+    }
+  }
+}
