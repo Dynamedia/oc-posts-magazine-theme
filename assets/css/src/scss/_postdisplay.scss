@@ -1,0 +1,29 @@
+.post-info {
+    padding: 5px 0;
+}
+h1 {
+    margin: 5px 0;
+    padding: 0;
+}
+ul.post-taxonomy-list {
+    padding: 10px 0;
+    margin: 0;
+    font-size: 0.8rem;
+  li {
+      display: inline-block;
+      list-style: none;
+      padding: 3px;
+      background-color: hotpink;
+      a {
+          color: #fff;
+      }
+  }
+}
+
+.post-banner {
+    img {
+        width:100%;
+        max-height: calc(100vh - 200px);
+        object-fit: cover;
+    }
+}

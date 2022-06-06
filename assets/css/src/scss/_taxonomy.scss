@@ -1,0 +1,43 @@
+.taxonomy-banner {
+    color: #fff;
+    background: rgba(0,0,0,0.3);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: darken;
+    height: 450px;
+    .inner {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        align-items: start;
+        justify-content: center;
+        h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin: 0;
+        }
+        .related-categories {
+            margin: 10px 5px;
+            ul {
+                list-style: none;
+                li {
+                    list-style: none;
+                    margin-right: 10px;
+                }
+            }
+        }
+
+        .excerpt {
+            margin-left: 5px;
+            p {
+                font-style: italic;
+                font-size: 1.5rem;
+            }
+        }
+    }
+}
+
+article.taxonomy {
+    margin: 15px 0;
+}

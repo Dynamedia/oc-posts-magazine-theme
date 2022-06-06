@@ -1,25 +1,30 @@
-/* Pagination */
-
-.pagination {
+ul.pagination {
+    display: flex;
+    padding: 0;
+    margin: 15px 0;
+    align-items: center;
     justify-content: center;
-  .page-item {
-    .page-link {
-      border-color: $border-color;
-      color: $text-muted;
-      font-size: 14px;
-      font-weight: 500;
-      padding: 15px 15px;
+
+    li {
+        display: inline-block;
+        background-color: $pagination-base-bg-color;
+        margin:0 2px;
+        font-size: 1rem;
+        &.active {
+            padding: 8px 16px;
+            background-color: $pagination-active-bg-color;
+        }
+        &.disabled {
+            padding: 8px 16px;
+        }
+        a {
+            display: block;
+            padding: 8px 16px;
+            height: 100%;
+            width: 100%;
+            &:focus, &:hover {
+                background-color: $pagination-focus-bg-color;
+            }
+        }
     }
-    .active {
-      color: white;
-    }
-    &.active,
-    &:hover,
-    &:focus,
-    &:active {
-      .page-link {
-        color: white;
-      }
-    }
-  }
 }

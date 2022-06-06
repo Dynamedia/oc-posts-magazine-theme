@@ -1,0 +1,82 @@
+[localePicker]
+forceUrl = 1
+
+[staticMenu mainNavigation]
+code = "main-navigation"
+==
+{% set displayPost = this.page.components.displayPost %}
+{% set post = displayPost.post %}
+{% set paginator = displayPost.paginator %}
+
+<!DOCTYPE html>
+<html lang="{{ activeLocale }}">
+
+{% partial 'layout/common/head' %}
+
+    <body class="page-{{ this.layout.id }} layout-{{ this.layout.id }}">
+    <div class="upper">
+
+        {% partial 'layout/common/header' %}
+
+        <div class="layout-container">
+            <ul class="post-taxonomy-list">
+                {% for category in post.categories %}
+                <li><a href="{{ category.url }}">{{ category.name }}</a></li>
+                {% endfor %}
+            </ul>
+
+            <h1>{{ post.title }}</h1>
+
+            <div class="post-info">
+                {% if post.is_published %}
+                    <small>
+                        By <a href="{{ post.author.profile.url }}">{{ post.author.first_name }} {{ post.author.last_name }}</a>,
+                        on {{ post.published_at | date('d-m-Y') }}
+                        {% if post.updated_at > post.published_at %}
+                            <br>Last updated {{ post.updated_at | date('d-m-Y') }}
+                        {% endif %}
+
+                        {### INFO FOR MULTI-PAGE POSTS ###}
+                        {% if post.pages | length > 1 %}
+                            <p>Page {{ displayPost.getRequestedPage }} of {{ post.pages | length }}</p>
+                        {% endif %}
+                    </small>
+                {% else %}
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        This <strong>post preview</strong> is only visible to creators and editors.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                {% endif %}
+            </div>
+
+            {% if post.images.banner.default %}
+            <div class="post-banner">
+                {% partial "helpers/image"
+                image = post.images.banner.default
+                responsive = post.images.banner.responsive
+                alt = post.images.banner.alt
+                class = post.images.banner.class
+                %}
+            </div>
+            {% endif %}
+
+            <article>
+                {{ post.body.renderPage(paginator.currentPage) | raw  }}
+            </article>
+
+            {% if paginator.total > 0 %}
+                {{ paginator.onEachSide(2).links() | raw }}
+            {% endif %}
+
+            {% page %}
+
+
+        </div>
+    </div>
+        {% partial 'layout/common/footer' %}
+        {% partial 'layout/common/scripts' %}
+    </body>
+
+</html>

@@ -1,0 +1,129 @@
+/* Navbar */
+
+$stripe-height: 30px;
+
+// todo colours and size in theme settings
+.stripe-top {
+    display: none;
+    width: 100%;
+    background-color: #000;
+    color: #fff;
+    padding: 5px;
+    height: $stripe-height;
+    position: sticky;
+    top:0;
+    font-size: 0.8rem;
+    z-index: 1000;
+    @include media-breakpoint-up(lg) {
+        display: block;
+    }
+}
+header {
+    display: none;
+    @include media-breakpoint-up(lg) {
+        display: block;
+    }
+    .header-inner {
+        // Only pad for large screens because stripe is not displayed below this size
+        @include media-breakpoint-up(lg) {
+            padding-top: $stripe-height;
+        }
+        box-sizing: border-box;
+        height: 200px;
+        padding: 10px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+
+        .brand {
+            width: 30%;
+            height: 100px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: hotpink;
+        }
+
+        .advert {
+            width: 65%;
+            height: 100px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: yellow;
+        }
+    }
+}
+
+.main-nav-container {
+    position: sticky;
+    width: 100%;
+    top: 0;
+    border-bottom: 2px solid rgb(0 0 0 / 10%);
+    box-shadow: 0 7px 8px -5px rgb(0 0 0 / 10%);er-color: #000;
+    @include media-breakpoint-up(lg) {
+        top: $stripe-height;
+    }
+    z-index: 1000;
+    background-color: #fff;
+    opacity: 0.95;
+    nav {
+        box-sizing: border-box;
+        padding: 5px;
+        height: 45px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .brand {
+            // Hide the brand here, its already visible in the header
+            @include media-breakpoint-up(lg) {
+                display: none;
+            }
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5px;
+            background-color: #000;
+            height:100%;
+        }
+        .links {
+            ul {
+                display: none;
+                @include media-breakpoint-up(lg) {
+                    display: flex;
+                }
+                padding: 5px 0;
+                margin-bottom: 0;
+                height: 30px;
+
+                flex-direction: row;
+                align-items: center;
+
+                li.nav-item {
+                    display: inline-block;
+                    margin-right: 10px;
+                    list-style: none;
+
+                    a {
+                        font-size: 1.1rem;
+                        font-weight: bold;
+                        color: #000;
+                        transition: border 200ms ease-out;
+                        border-bottom: 3px solid transparent;
+
+                        &:hover, &:focus {
+                            border-bottom: 3px solid green;
+                        }
+                    }
+                }
+            }
+        }
+        .menu-toggle {
+            @include media-breakpoint-up(lg) {
+                display: none;
+            }
+        }
+    }
+}

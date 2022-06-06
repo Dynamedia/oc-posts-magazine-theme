@@ -1,3 +1,17 @@
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1400px
+);
+$grid-xxl-width: 1350px;
+$grid-xl-width: 1150px;
+$grid-lg-width: 950px;
+$grid-md-width: 720px;
+$grid-sm-width: 550px;
+
 ////////// COLOR SYSTEM //////////
 
 $blue: #5e50f9;
@@ -47,6 +61,7 @@ $theme-colors: (
   light: #f8f9fa,
   dark: #000
 );
+$primary: #0a62fb;
 
 // $theme-gradient-colors: (
 //   primary:         linear-gradient(230deg, #759bff, #843cf6),
@@ -198,43 +213,6 @@ $action-transition-duration: 0.25s;
 $action-transition-timing-function: ease;
 ////////// OTHER VARIABLES //////////
 
-////////// MODALS VARIABLES //////////
-
-$modal-inner-padding: 0.937rem;
-$modal-dialog-margin: 10px;
-$modal-dialog-margin-y-sm-up: 30px;
-$modal-title-line-height: $line-height-base;
-$modal-content-bg: $white;
-$modal-content-box-shadow-xs: 0 3px 9px rgba($black, 0.5);
-$modal-content-box-shadow-sm-up: 0 5px 15px rgba($black, 0.5);
-
-$modal-backdrop-bg: $black;
-$modal-backdrop-opacity: 0.5;
-
-$modal-header-border-color: $border-color;
-$modal-content-border-color: $border-color;
-$modal-footer-border-color: $border-color;
-
-$modal-header-border-width: $border-width;
-$modal-content-border-width: $border-width;
-$modal-footer-border-width: $border-width;
-
-$modal-header-padding-x: 26px;
-$modal-header-padding-y: 25px;
-
-$modal-body-padding-x: 26px;
-$modal-body-padding-y: 35px;
-
-$modal-footer-padding-x: 31px;
-$modal-footer-padding-y: 15px;
-
-$modal-lg: 90%;
-$modal-md: 500px;
-$modal-sm: 300px;
-$modal-fade-transform: scale(0.2);
-$modal-transition: transform 1s ease;
-
-////////// MODALS VARIABLES //////////
 
 /////////  TABS VARIABLES //////////
 $nav-tabs-border-color: #ebedf2;
@@ -275,3 +253,8 @@ $custom-card-color: #e1e1e1;
 $custom-primary-color: #0a4ded;
 $footer-custom-bg: #d2e0ff;
 $carousel-border-color: #979797;
+
+// Pagination
+$pagination-base-bg-color: #eeeeee;
+$pagination-active-bg-color: #68b2f2;
+$pagination-focus-bg-color: lighten($pagination-active-bg-color, 20%);

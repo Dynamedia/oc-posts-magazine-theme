@@ -1,6 +1,26 @@
+.layout-container {
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 0 5px;
+    @include media-breakpoint-up(sm) {
+        max-width: $grid-sm-width;
+    }
+    @include media-breakpoint-up(md) {
+        padding: 0 15px;
+        max-width: $grid-md-width;
+    }
+    @include media-breakpoint-up(lg) {
+        max-width: $grid-lg-width;
+    }
+    @include media-breakpoint-up(xl) {
+        max-width: $grid-xl-width;
+    }
+    @include media-breakpoint-up(xxl) {
+        max-width: $grid-xxl-width;
+    }
+}
 .grid-sidebar-right {
     display: grid;
-    margin-top: 30px;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
     grid-column-gap: 15px;
@@ -8,4 +28,18 @@
     @include media-breakpoint-up(lg) {
         grid-template-columns: 8fr 4fr;
     }
+}
+.grid-sidebar-left {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+    @include media-breakpoint-up(lg) {
+        grid-template-columns: 3fr 9fr;
+    }
+}
+
+.content-container {
+    margin-bottom: 30px;
 }

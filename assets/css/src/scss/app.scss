@@ -1,29 +1,24 @@
-@import "../../../../node_modules/bootstrap/scss/functions";
-@import "../../../../node_modules/bootstrap/scss/mixins";
+//
+@import "reset";
+
+// Just get the breakpoint mixins from bootstrap because they're very nice
 @import "../../../../node_modules/bootstrap/scss/mixins/_breakpoints";
-@import "../../../../node_modules/bootstrap/scss/variables";
 
 @import "variables";
 
 /* === Core Styles === */
-@import "cards";
 @import "grids-layout";
 @import "grids-hero-image";
 @import "grids-image-text-list";
 @import "grids-image-text-grid";
 @import "grids-hero-image-text-grid";
-@import "grids-carousel-list-left";
 @import "swiffy-slider";
 @import "typography";
+@import "postdisplay";
+@import "taxonomy";
 @import "pagination";
-@import "./mixins/buttons";
-@import "buttons";
-@import "./navbar";
-@import "./wrapper";
-@import "./news-post";
-@import "./contact";
+@import "./header";
 @import "./footer";
-@import "./error";
 
 .section-title {
     $bgcol: #666;
