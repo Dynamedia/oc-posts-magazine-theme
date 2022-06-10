@@ -1,0 +1,28 @@
+{# --- Styles to be included in the html document, set in theme configuration screen--- #}
+{% set style = this.theme.style %}
+
+<style>
+    :root {
+        --hl-default: #4584cb;
+
+        --stripe-bg-color: {{ style.stripe_bg_color ? style.stripe_bg_color : '#000000' }};
+        --stripe-fg-color: {{ style.stripe_fg_color ? style.stripe_fg_color : '#FFFFFF' }};
+        --stripe-hl-color: {{ style.stripe_hl_color ? style.stripe_hl_color : 'var(--hl-default)' }};
+        --navbar-bg-color: {{ style.navbar_bg_color ? style.navbar_bg_color : '#000000' }};
+        --navbar-fg-color: {{ style.navbar_fg_color ? style.navbar_fg_color : '#FFFFFF' }};
+        --navbar-hl-color: {{ style.navbar_hl_color ? style.navbar_hl_color : 'var(--hl-default)' }};
+
+        --nav-sticky: {{ style.nav_sticky ? 'sticky' : 'unset' }};
+
+        --footer-bg-color: {{ style.footer_bg_color ? style.footer_bg_color : '#000000' }}EA;
+
+        {% if style.footer_bg_image %}
+            --footer-bg-image: url('{{ style.footer_bg_image | media }}');
+        {% else %}
+            --footer-bg-image: none;
+        {% endif %}
+
+        --footer-fg-color: {{ style.footer_fg_color ? style.footer_fg_color : '#FFFFFF' }};
+        --footer-hl-color: {{ style.footer_fg_color ? style.footer_fg_color : 'var(--hl-default)' }};
+    }
+</style>

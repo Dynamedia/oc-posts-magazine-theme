@@ -15,6 +15,70 @@ translate: config/lang.yaml
 form:
     tabs:
         fields:
+            style:
+                tab: Style
+                type: nestedform
+                form:
+                    tabs:
+                        fields:
+                            stripe_bg_color:
+                                tab: Header
+                                label: 'Top Stripe Background Colour'
+                                type: colorpicker
+                                span: left
+                            navbar_bg_color:
+                                tab: Header
+                                label: 'Navbar Background Colour'
+                                type: colorpicker
+                                span: right
+                            stripe_fg_color:
+                                tab: Header
+                                label: 'Top Stripe Foreground Colour'
+                                type: colorpicker
+                                span: left
+                            navbar_fg_color:
+                                tab: Header
+                                label: 'Navbar Foreground Colour'
+                                type: colorpicker
+                                span: right
+                            stripe_hl_color:
+                                tab: Header
+                                label: 'Top Stripe Highlight Colour'
+                                type: colorpicker
+                                span: left
+                            navbar_hl_color:
+                                tab: Header
+                                label: 'Navbar Highlight Colour'
+                                type: colorpicker
+                                span: right
+
+                            nav_sticky:
+                                tab: Header
+                                label: Sticky Navigation
+                                type: switch
+                                default: true
+
+                            footer_bg_color:
+                                tab: Footer
+                                label: 'Footer Background Colour'
+                                type: colorpicker
+                                span: left
+                            footer_bg_image:
+                                tab: Footer
+                                label: 'Footer Background Image'
+                                type: mediafinder
+                                mode: image
+                                span: right
+                            footer_fg_color:
+                                tab: Footer
+                                label: 'Footer Foreground Colour'
+                                type: colorpicker
+                                span: left
+                            footer_hl_color:
+                                tab: Footer
+                                label: 'Footer Highlight Colour'
+                                type: colorpicker
+                                span: left
             googleanalytics_id:
                 tab: Detail
                 label: 'Google Analytics ID'

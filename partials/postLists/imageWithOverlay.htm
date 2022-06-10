@@ -1,0 +1,27 @@
+{% for post in posts %}
+    <div class="box">
+        <a href="{{ post.url }}">
+            {% partial "helpers/image"
+                image = post.images.list.default
+                responsive = post.images.list.responsive
+                alt = post.images.list.alt
+            %}
+        </a>
+        <div class="info">
+            {% if post.primary_category and badge == "category" %}
+                <a class="category-badge" href="{{ post.primary_category.url }}">{{ post.primary_category.name | upper }}</a>
+            {% endif %}
+            {% if post.tags | length and badge == "tag" %}
+                <a class="category-badge" href="{{ post.tags | first.url }}">#{{ post.tags | first.name | upper }}</a>
+            {% endif %}
+            <h3>{{ post.title }}</h3>
+            <span class="excerpt">
+                    {{ post.excerpt | raw }}
+                </span>
+            <span class="author">
+                    <a href="{{ post.author.profile.url }}">{{ post.author.full_name }}</a> -
+                    {{ post.publlished_at | date('M d, Y') }}
+                </span>
+        </div>
+    </div>
+{% endfor %}

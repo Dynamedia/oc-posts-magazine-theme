@@ -1,0 +1,15 @@
+items:
+    -
+        title: Fashion
+        nesting: 0
+        type: posts-category
+        url: null
+        code: ''
+        reference: '1'
+        cmsPage: null
+        replace: 0
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+name: 'Main Categories'

@@ -1,0 +1,28 @@
+items:
+    -
+        title: Privacy
+        nesting: null
+        type: url
+        url: /privacy
+        code: ''
+        reference: null
+        cmsPage: null
+        replace: null
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'Terms & Conditions'
+        nesting: null
+        type: url
+        url: /terms
+        code: ''
+        reference: null
+        cmsPage: null
+        replace: null
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+name: 'Legal & Compliance'

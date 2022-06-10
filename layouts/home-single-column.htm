@@ -64,6 +64,8 @@ sortOrder = "published_at desc"
                 <div class="content-container">
                     {% partial "postLists/heroImageList"
                         component=this.layout.components.heroImageList
+                        badge='category'
+                        collapse='noscroll'
                     %}
                 </div>
 
@@ -95,9 +97,10 @@ sortOrder = "published_at desc"
                 {% page %}
 
                 <div class="content-container">
-                    {% partial "postLists/heroImageTextGrid"
-                        title="Hero List Left"
+                    {% partial "postLists/heroImageList"
                         component=this.layout.components.heroImageTextGrid
+                        badge='category'
+                        collapse='scroll'
                     %}
                 </div>
 

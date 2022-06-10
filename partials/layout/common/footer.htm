@@ -1,10 +1,90 @@
+[staticMenu footerLegalMenu]
+code = "footer-legal-compliance"
+
+[staticMenu footerCategoryMenu]
+code = "footer-main-categories"
+
+[staticMenu footerOverviewMenu]
+code = "footer-overview"
+
+[staticMenu footerOtherMenu]
+code = "footer-other"
+
+[listPosts editorsPicks]
+postIds = "1,2,3,4,5"
+postsLimit = 5
+postsPerPage = 5
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+==
+{% set bgImage = this.theme.footer_bg %}
+{% set textColor = this.theme.footer_text_color %}
 <footer>
     <div class="layout-container">
-        <div style="width: 200px;">
-{#            {% partial "postLists/imageTextList"#}
-{#                title="text list"#}
-{#                component=this.layout.components.heroImageList#}
-{#            %}#}
+        <div class="content-container">
+            <h3>{{ footerOverviewMenu.menuName }}</h3>
+            <nav>
+                <ul>
+                    {% for item in footerOverviewMenu.menuItems if not item.viewBag.isHidden %}
+                        <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </nav>
+
+            <h3>Follow Us</h3>
+            <div class="social-links">
+                <span>FB</span>
+                <span>TW</span>
+                <span>IN</span>
+            </div>
+        </div>
+
+        <div class="content-container">
+            {# --- Manually add categories to this menu (static pages menu) - You probably dont want EVERY category here --- #}
+            <h3>{{ footerCategoryMenu.menuName }}</h3>
+            <nav>
+                <ul>
+                    {% for item in footerCategoryMenu.menuItems if not item.viewBag.isHidden %}
+                        <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </nav>
+        </div>
+
+        <div class="content-container">
+            <h3>{{ footerOtherMenu.menuName }}</h3>
+            <nav>
+                <ul>
+                    {% for item in footerOtherMenu.menuItems if not item.viewBag.isHidden %}
+                        <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </nav>
+
+            <h3>{{ footerLegalMenu.menuName }}</h3>
+            <nav>
+                <ul>
+                {% for item in footerLegalMenu.menuItems if not item.viewBag.isHidden %}
+                    <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+                {% endfor %}
+                </ul>
+            </nav>
+        </div>
+
+        <div class="content-container">
+            {# --- Using postslist component with user-defined post ID's --- #}
+            <h3>Editor's Pick</h3>
+            <ul class="image-list">
+                {% for post in editorsPicks.posts %}
+                    <li class="image-list">
+                        {% partial "helpers/image"
+                            image = post.images.list.default
+                            responsive = post.images.list.responsive
+                            alt = post.images.list.alt
+                        %}
+                        <a href="{{ post.url }}">{{ post.title }}</a></li>
+                {% endfor %}
+            </ul>
         </div>
     </div>
 </footer>

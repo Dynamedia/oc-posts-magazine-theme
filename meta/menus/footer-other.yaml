@@ -1,0 +1,28 @@
+items:
+    -
+        title: 'A link'
+        type: url
+        url: '#_'
+        code: ''
+        viewBag:
+            locale:
+                de:
+                    title: ''
+                    url: ''
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'Another Link'
+        type: url
+        url: '#_'
+        code: ''
+        viewBag:
+            locale:
+                de:
+                    title: ''
+                    url: ''
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+name: 'More Links'

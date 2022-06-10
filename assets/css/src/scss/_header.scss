@@ -6,14 +6,20 @@ $stripe-height: 30px;
 .stripe-top {
     display: none;
     width: 100%;
-    background-color: #000;
-    color: #fff;
+    background-color: var(--stripe-bg-color);
+    color: var(--stripe-fg-color);
     padding: 5px;
     height: $stripe-height;
-    position: sticky;
+    position: var(--nav-sticky);
     top:0;
     font-size: 0.8rem;
     z-index: 1000;
+    a {
+        transition: color 200ms ease-out;
+        &:hover, &:focus {
+            color: var(--stripe-hl-color);
+        }
+    }
     @include media-breakpoint-up(lg) {
         display: block;
     }
@@ -58,7 +64,7 @@ header {
 }
 
 .main-nav-container {
-    position: sticky;
+    position: var(--nav-sticky);
     width: 100%;
     top: 0;
     border-bottom: 2px solid rgb(0 0 0 / 10%);
@@ -67,7 +73,8 @@ header {
         top: $stripe-height;
     }
     z-index: 1000;
-    background-color: #fff;
+    background-color: var(--navbar-bg-color);
+    color: var(--navbar-fg-color);
     opacity: 0.95;
     nav {
         box-sizing: border-box;
@@ -109,12 +116,11 @@ header {
                     a {
                         font-size: 1.1rem;
                         font-weight: bold;
-                        color: #000;
                         transition: border 200ms ease-out;
                         border-bottom: 3px solid transparent;
 
                         &:hover, &:focus {
-                            border-bottom: 3px solid green;
+                            border-bottom: 3px solid var(--navbar-hl-color);
                         }
                     }
                 }
