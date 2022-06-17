@@ -148,6 +148,10 @@ a {
   margin-bottom: 30px;
 }
 
+.push-down-15 {
+  margin-top: 15px;
+}
+
 .image-grid .box a img {
   width: 100%;
   min-width: 100%;
@@ -644,6 +648,10 @@ h6,
 
 .post-info {
   padding: 5px 0;
+  font-style: italic;
+}
+.post-info a:hover, .post-info a:focus {
+  text-decoration: underline;
 }
 
 h1 {
@@ -723,6 +731,19 @@ ul.pagination {
   align-items: center;
   justify-content: center;
 }
+@media (max-width: 767.98px) {
+  ul.pagination li.page-item {
+    display: none;
+  }
+  ul.pagination .page-item:first-child,
+ul.pagination .page-item:nth-child(2),
+ul.pagination .page-item:nth-last-child(2),
+ul.pagination .page-item:last-child,
+ul.pagination .page-item.active,
+ul.pagination .page-item.disabled {
+    display: block;
+  }
+}
 ul.pagination li {
   display: inline-block;
   background-color: #eeeeee;
@@ -794,12 +815,14 @@ header .header-inner {
 }
 header .header-inner .brand {
   width: 30%;
-  height: 100px;
+  height: 200px;
   padding: 20px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  background-color: hotpink;
+  justify-content: start;
+}
+header .header-inner .brand img.logo {
+  height: 100%;
 }
 header .header-inner .advert {
   width: 65%;
@@ -841,13 +864,15 @@ header .header-inner .advert {
   align-items: center;
   justify-content: center;
   padding: 5px;
-  background-color: #000;
   height: 100%;
 }
 @media (min-width: 992px) {
   .main-nav-container nav .brand {
     display: none;
   }
+}
+.main-nav-container nav .brand img.logo {
+  height: 100%;
 }
 .main-nav-container nav .links ul {
   display: none;

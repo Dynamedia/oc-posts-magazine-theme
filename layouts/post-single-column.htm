@@ -18,7 +18,7 @@ code = "main-navigation"
 
         {% partial 'layout/common/header' %}
 
-        <div class="layout-container">
+        <div class="layout-container push-down-15">
             <ul class="post-taxonomy-list">
                 {% for category in post.categories %}
                 <li><a href="{{ category.url }}">{{ category.name }}</a></li>
@@ -62,12 +62,28 @@ code = "main-navigation"
             </div>
             {% endif %}
 
-            <article>
-                {{ post.body.renderPage(paginator.currentPage) | raw  }}
-            </article>
+            <div class="grid-sidebar-right content-container push-down-15">
+                <article>
+                    {{ post.body.renderPage(paginator.currentPage) | raw  }}
+                </article>
+
+                <div>
+                    <div style="position:sticky; top:80px;">
+                        <div style="background:hotpink; width:100%; height: 300px;">
+                            <img style="width: 100%; height: 100%;" src="https://wpadvancedads.com/wp-content/uploads/2015/08/300x250.png">
+                        </div>
+                        <div style="background:yellow; margin-top: 15px; width:100%; height: 200px;">
+                            SOCIALS
+                        </div>
+                        <div style="background:skyblue; margin-top: 15px; width:100%; height: 200px;">
+                            MAILING
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             {% if paginator.total > 0 %}
-                {{ paginator.onEachSide(2).links() | raw }}
+                {{ paginator.onEachSide(3).links() | raw }}
             {% endif %}
 
             {% page %}

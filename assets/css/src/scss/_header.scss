@@ -43,12 +43,14 @@ header {
 
         .brand {
             width: 30%;
-            height: 100px;
+            height: 200px;
             padding: 20px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            background-color: hotpink;
+            justify-content: start;
+            img.logo {
+                height: 100%;
+            }
         }
 
         .advert {
@@ -92,8 +94,10 @@ header {
             align-items: center;
             justify-content: center;
             padding: 5px;
-            background-color: #000;
             height:100%;
+            img.logo {
+                height: 100%;
+            }
         }
         .links {
             ul {

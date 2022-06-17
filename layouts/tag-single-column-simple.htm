@@ -1,0 +1,100 @@
+description = "Tag Single Column Simple"
+postsLayout = true
+
+[localePicker]
+forceUrl = 1
+
+[staticMenu mainNavigation]
+code = "main-navigation"
+
+==
+
+{# The component is attached to the page but we can use it here for more customisation #}
+        {% set displayTagComponent = this.page.components.displayTag %}
+        {% set tag = displayTagComponent.tag %}
+        {% set posts = displayTagComponent.posts %}
+
+        {# Split the posts into groups for a nice display, if there are enough otherwise just a list  #}
+        {% if posts | length >= 9 %}
+            {% set firstBlock = posts | slice(1,5) %}
+            {% set postsList = posts | slice(6) %}
+        {% else %}
+            {% set postsList = posts %}
+        {% endif %}
+
+<!DOCTYPE html>
+<html lang="{{ activeLocale }}">
+
+    {% partial 'layout/common/head' %}
+
+    <body class="page-{{ this.layout.id }} layout-{{ this.layout.id }}">
+
+        <div class="upper">
+
+            {% partial 'layout/common/header' %}
+
+            <div class="taxonomy-banner" style="background-image: url('{{ tag.images.banner.default | media }}')">
+
+                <div class="layout-container inner">
+                    <h1>#{{ tag.name | upper }}</h1>
+
+                        <div class="excerpt">
+                            <p>{{ tag.excerpt | striptags }}</p>
+                        </div>
+
+                </div>
+
+            </div>
+
+                <div class="layout-container">
+
+                    <article class="taxonomy">
+                        {{ tag.body.renderAllPages() | raw }}
+                    </article>
+
+                    {% if firstBlock %}
+                    <div class="content-container">
+                        {% partial "postLists/heroImageTextGrid"
+                            posts=firstBlock
+                        %}
+                    </div>
+                    {% endif %}
+
+                    <div class="grid-sidebar-right content-container">
+                        <div>
+                            {% partial "postLists/imageTextList"
+                                posts=postsList
+                            %}
+
+                            {% if posts.links %}
+                                {{ posts.links("pagination::bootstrap-4") | raw }}
+                            {% endif %}
+                        </div>
+
+                        <div>
+                            <div style="position:sticky; top:80px;">
+                                <div style="background:hotpink; width:100%; height: 300px;">
+                                    ADVERT
+                                </div>
+                                <div style="background:yellow; margin-top: 15px; width:100%; height: 200px;">
+                                    SOCIALS
+                                </div>
+                                <div style="background:skyblue; margin-top: 15px; width:100%; height: 200px;">
+                                    MAILING
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        {% partial 'layout/common/footer' %}
+
+        {% partial 'layout/common/scripts' %}
+
+    </body>
+
+</html>

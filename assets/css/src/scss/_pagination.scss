@@ -5,6 +5,23 @@ ul.pagination {
     align-items: center;
     justify-content: center;
 
+    // https://stackoverflow.com/questions/27655992/limit-amount-of-links-shown-with-laravel-pagination
+    @include media-breakpoint-between(xs, sm) {
+        li.page-item {
+            display: none;
+        }
+
+        .page-item:first-child,
+        .page-item:nth-child( 2 ),
+        .page-item:nth-last-child( 2 ),
+        .page-item:last-child,
+        .page-item.active,
+        .page-item.disabled {
+
+            display: block;
+        }
+    }
+
     li {
         display: inline-block;
         background-color: $pagination-base-bg-color;
