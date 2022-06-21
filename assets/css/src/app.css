@@ -152,6 +152,26 @@ a {
   margin-top: 15px;
 }
 
+.twitter-blue-bg {
+  background: #1DA1F2;
+  color: #FFFFFF;
+}
+
+.twitter-blue-fg {
+  background: #FFFFFF;
+  color: #1DA1F2;
+}
+
+.facebook-blue-bg {
+  background: #4267B2;
+  color: #FFFFFF;
+}
+
+.facebook-blue-fg {
+  background: #FFFFFF;
+  color: #4267B2;
+}
+
 .image-grid .box a img {
   width: 100%;
   min-width: 100%;
@@ -679,6 +699,22 @@ ul.post-taxonomy-list li a {
   max-height: calc(100vh - 200px);
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.layout-default-user-display .detail {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 30px;
+}
+.layout-default-user-display .detail img.avatar {
+  width: 200px;
+  border-radius: 50%;
+}
+.layout-default-user-display .detail .links li {
+  font-size: 1.5rem;
+  padding: 2px 5px;
+  display: inline-block;
 }
 
 .taxonomy-banner {

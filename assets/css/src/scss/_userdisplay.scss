@@ -1,0 +1,22 @@
+.layout-default-user-display {
+    .detail {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding:30px;
+
+            img.avatar {
+                width: 200px;
+                border-radius: 50%;
+            }
+            .links {
+                li {
+                    font-size: 1.5rem;
+                    padding: 2px 5px;
+                    display: inline-block;
+                }
+            }
+        }
+
+
+}
