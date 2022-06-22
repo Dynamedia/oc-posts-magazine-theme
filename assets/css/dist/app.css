@@ -530,32 +530,6 @@ a {
   color: #0a62fb;
 }
 
-.swiffy-slider .carousel-wrapper {
-  background: #000000;
-}
-.swiffy-slider .carousel-wrapper img {
-  width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  opacity: 0.6;
-  height: 20rem;
-}
-@media (min-width: 768px) {
-  .swiffy-slider .carousel-wrapper img {
-    height: 24rem;
-  }
-}
-.swiffy-slider .carousel-wrapper .carousel-content {
-  position: absolute;
-  bottom: 60px;
-  left: 40px;
-  color: #ffffff;
-}
-.swiffy-slider .carousel-wrapper .carousel-content h4 {
-  font-size: 1.8rem;
-  font-weight: bold;
-}
-
 /* Typography */
 body {
   font-size: 14px;
