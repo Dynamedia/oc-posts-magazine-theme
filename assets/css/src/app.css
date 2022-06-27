@@ -130,6 +130,38 @@ a {
     grid-template-columns: 8fr 4fr;
   }
 }
+.grid-sidebar-right .advert {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.grid-sidebar-right .advert small.ad-text {
+  font-size: 0.7rem;
+  color: #777777;
+}
+@media (min-width: 992px) {
+  .grid-sidebar-right .advert {
+    justify-content: center;
+  }
+}
+.grid-sidebar-right .social-links {
+  margin-top: 15px;
+}
+.grid-sidebar-right .social-links ul {
+  text-align: center;
+  padding: 15px 0;
+}
+.grid-sidebar-right .social-links ul li {
+  display: inline-block;
+  padding-bottom: 5px;
+  border-bottom: 3px solid transparent;
+  margin-right: 15px;
+  text-align: center;
+}
+.grid-sidebar-right .social-links ul li i {
+  font-size: 40px;
+}
 
 .grid-sidebar-left {
   display: grid;
@@ -141,6 +173,21 @@ a {
 @media (min-width: 992px) {
   .grid-sidebar-left {
     grid-template-columns: 3fr 9fr;
+  }
+}
+.grid-sidebar-left .advert {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.grid-sidebar-left .advert small.ad-text {
+  font-size: 0.7rem;
+  color: #777777;
+}
+@media (min-width: 992px) {
+  .grid-sidebar-left .advert {
+    justify-content: center;
   }
 }
 
@@ -170,6 +217,26 @@ a {
 .facebook-blue-fg {
   background: #FFFFFF;
   color: #4267B2;
+}
+
+.youtube-red-bg {
+  background: #FF0000;
+  color: #FFFFFF;
+}
+
+.youtube-red-fg {
+  background: #FFFFFF;
+  color: #FF0000;
+}
+
+.instagram-purple-blue-bg {
+  background: #5851DB;
+  color: #FFFFFF;
+}
+
+.instagram-purple-blue-fg {
+  background: #FFFFFF;
+  color: #5851DB;
 }
 
 .image-grid .box a img {
@@ -841,7 +908,6 @@ header .header-inner .advert {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: yellow;
 }
 
 .main-nav-container {

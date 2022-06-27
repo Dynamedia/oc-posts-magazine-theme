@@ -28,6 +28,37 @@
     @include media-breakpoint-up(lg) {
         grid-template-columns: 8fr 4fr;
     }
+    .advert {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        small.ad-text {
+            font-size: 0.7rem;
+            color: #777777;
+        }
+        @include media-breakpoint-up(lg) {
+            justify-content: center;
+        }
+    }
+    .social-links {
+        margin-top: 15px;
+        ul {
+            text-align: center;
+            padding: 15px 0;
+            li {
+                display: inline-block;
+                padding-bottom: 5px;
+                border-bottom: 3px solid transparent;
+                margin-right: 15px;
+                text-align: center;
+
+                i {
+                    font-size: 40px;
+                }
+            }
+        }
+    }
 }
 .grid-sidebar-left {
     display: grid;
@@ -37,6 +68,19 @@
     grid-row-gap: 15px;
     @include media-breakpoint-up(lg) {
         grid-template-columns: 3fr 9fr;
+    }
+    .advert {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        small.ad-text {
+            font-size: 0.7rem;
+            color: #777777;
+        }
+        @include media-breakpoint-up(lg) {
+            justify-content: center;
+        }
     }
 }
 
