@@ -1,27 +1,50 @@
 items:
     -
         title: Privacy
-        nesting: null
-        type: url
-        url: /privacy
+        nesting: 0
+        type: static-page
+        url: null
         code: ''
-        reference: null
+        reference: privacy
         cmsPage: null
-        replace: null
+        replace: 0
         viewBag:
+            locale:
+                de:
+                    title: ''
+                    url: ''
             isHidden: '0'
             cssClass: ''
             isExternal: '0'
     -
         title: 'Terms & Conditions'
-        nesting: null
-        type: url
-        url: /terms
+        nesting: 0
+        type: static-page
+        url: null
         code: ''
-        reference: null
+        reference: terms-conditions
         cmsPage: null
-        replace: null
+        replace: 0
         viewBag:
+            locale:
+                de:
+                    title: ''
+                    url: ''
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Cookies
+        nesting: 0
+        type: static-page
+        code: ''
+        reference: cookies-policy
+        replace: 0
+        viewBag:
+            locale:
+                de:
+                    title: ''
+                    url: ''
             isHidden: '0'
             cssClass: ''
             isExternal: '0'
