@@ -25,6 +25,8 @@ footer {
             li {
                 display: flex;
                 align-items: center;
+                flex-shrink: revert;
+                justify-content: flex-start;
                 padding: 5px 0;
                 a {
                     transition: color 200ms ease-out;
@@ -34,12 +36,14 @@ footer {
                 }
                 &.image-list {
                     picture {
-                        display: flex;
-                        align-items: center;
+                        width: fit-content;
+                        height: fit-content;
                     }
                     img {
                         border-radius: 50%;
+                        min-width: 40px;
                         width: 40px;
+                        min-height: 40px;
                         height: 40px;
                         margin-right: 10px;
                     }

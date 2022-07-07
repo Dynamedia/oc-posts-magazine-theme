@@ -3,12 +3,10 @@
 {% endif %}
 
 {% if title %}
-    <div class="d-flex position-relative float-left">
-        <h3 class="section-title">{{ title }}</h3>
-    </div>
+    <h3 class="section-title"><span>{{ title }}</span></h3>
 {% endif %}
 
-<div class="image-grid hero-image-grid {{ collapse == 'scroll' ? 'collapse-scroll' : '' }}">
+<div class="image-grid hero-image-grid {{ collapse == 'scroll' ? 'collapse-scroll' : 'no-scroll' }}">
     {% partial 'postLists/imageWithOverlay'
         posts=posts
         badge=badge

@@ -15,9 +15,9 @@ code = "main-navigation"
         {% set posts = displayTagComponent.posts %}
 
         {# Split the posts into groups for a nice display, if there are enough otherwise just a list  #}
-        {% if posts | length >= 9 %}
-            {% set firstBlock = posts | slice(1,5) %}
-            {% set postsList = posts | slice(6) %}
+        {% if posts | length >= 6 %}
+            {% set firstBlock = posts | slice(0,4) %}
+            {% set postsList = posts | slice(4) %}
         {% else %}
             {% set postsList = posts %}
         {% endif %}
@@ -33,7 +33,11 @@ code = "main-navigation"
 
             {% partial 'layout/common/header' %}
 
-            <div class="taxonomy-banner" style="background-image: url('{{ tag.images.banner.default | media }}')">
+            {% if tag.images.banner.default %}
+                <div class="full-banner" style="background-image: url('{{ tag.images.banner.default | media }}')">
+            {% else %}
+                <div class="full-banner no-image">
+            {% endif %}
 
                 <div class="layout-container inner">
                     <h1>#{{ tag.name | upper }}</h1>
@@ -48,14 +52,15 @@ code = "main-navigation"
 
                 <div class="layout-container">
 
-                    <article class="taxonomy">
+                    <article class="content-body taxonomy">
                         {{ tag.body.renderAllPages() | raw }}
                     </article>
 
                     {% if firstBlock %}
                     <div class="content-container">
-                        {% partial "postLists/heroImageTextGrid"
+                        {% partial "postLists/heroImageList"
                             posts=firstBlock
+                            badge="category"
                         %}
                     </div>
                     {% endif %}

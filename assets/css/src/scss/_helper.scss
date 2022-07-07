@@ -1,0 +1,12 @@
+ul {
+    &.unstyled {
+        li {
+            list-style: none;
+        }
+    }
+    &.inline {
+        li {
+            display: inline-block;
+        }
+    }
+}

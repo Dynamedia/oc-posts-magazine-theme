@@ -1,3 +1,6 @@
+description = "Default Post Display"
+postsLayout = true
+
 [localePicker]
 forceUrl = 1
 
@@ -19,12 +22,6 @@ code = "main-navigation"
         {% partial 'layout/common/header' %}
 
         <div class="layout-container push-down-15">
-            <ul class="post-taxonomy-list">
-                {% for category in post.categories %}
-                <li><a href="{{ category.url }}">{{ category.name }}</a></li>
-                {% endfor %}
-            </ul>
-
             <h1>{{ post.title }}</h1>
 
             <div class="post-info">
@@ -51,6 +48,15 @@ code = "main-navigation"
                 {% endif %}
             </div>
 
+            <ul class="post-taxonomy-list">
+                {% for category in post.categories %}
+                    <li><a href="{{ category.url }}" class="taxonomy-badge">{{ category.name }}</a></li>
+                {% endfor %}
+                {% for tag in post.tags %}
+                    <li><a href="{{ tag.url }}" class="taxonomy-badge">#{{ tag.name }}</a></li>
+                {% endfor %}
+            </ul>
+
             {% if post.images.banner.default %}
             <div class="post-banner">
                 {% partial "helpers/image"
@@ -63,7 +69,7 @@ code = "main-navigation"
             {% endif %}
 
             <div class="grid-sidebar-right content-container push-down-15">
-                <article>
+                <article class="content-body post">
                     {{ post.body.renderPage(paginator.currentPage) | raw  }}
                 </article>
 

@@ -1,5 +1,5 @@
 {% for post in posts %}
-    <div class="box">
+    <div class="post-container">
         <a href="{{ post.url }}">
             {% partial "helpers/image"
                 image = post.images.list.default
@@ -9,10 +9,10 @@
         </a>
         <div class="info">
             {% if post.primary_category and badge == "category" %}
-                <a class="category-badge" href="{{ post.primary_category.url }}">{{ post.primary_category.name | upper }}</a>
+                <a class="taxonomy-badge" href="{{ post.primary_category.url }}">{{ post.primary_category.name | upper }}</a>
             {% endif %}
             {% if post.tags | length and badge == "tag" %}
-                <a class="category-badge" href="{{ post.tags | first.url }}">#{{ post.tags | first.name | upper }}</a>
+                <a class="taxonomy-badge" href="{{ post.tags | first.url }}">#{{ post.tags | first.name | upper }}</a>
             {% endif %}
             <h3>{{ post.title }}</h3>
             <span class="excerpt">

@@ -5,19 +5,6 @@
     grid-auto-rows: 50px;
     grid-gap: 15px;
 
-    &.collapse-scroll {
-        overflow-x: scroll;
-        overscroll-behavior-x: contain;
-        scroll-snap-type: x mandatory;
-        grid-auto-flow: column;
-        grid-auto-columns: 85%;
-        @include media-breakpoint-up(md) {
-            grid-gap: 4px;
-            grid-auto-flow: row;
-            overflow-x: auto;
-            grid-auto-columns: unset;
-        }
-    }
     @include media-breakpoint-up(md) {
         grid-gap: 4px;
         grid-template-columns: repeat(8, 1fr);
@@ -25,21 +12,20 @@
         grid-auto-rows: 50px;
     }
 
-    .box {
+    .post-container {
         grid-area: span 5 / span 8;
         background: rgb(0,0,0);
         scroll-snap-align: start;
         color: #fff;
         position: relative;
         padding: 0;
-        overflow: hidden;
 
         @include media-breakpoint-up(md) {
             grid-area: span 3 / span 4;
             h3 {
                 font-size: 1rem;
             }
-            a.category-badge {
+            a.taxonomy-badge {
                 font-size: 0.6rem;
             }
         }
@@ -49,7 +35,7 @@
             h3 {
                 font-size: 1.1rem;
             }
-            a.category-badge {
+            a.taxonomy-badge {
                 font-size: 0.8rem;
             }
             &:nth-of-type(1) {
@@ -67,6 +53,48 @@
                     font-size: 1.5rem;
                 }
             }
+        }
+    }
+
+    &.collapse-scroll {
+        grid-template-rows: repeat(5, 50px);
+        overflow-x: scroll;
+        overscroll-behavior-x: contain;
+        scroll-snap-type: x mandatory;
+        grid-auto-flow: column;
+        grid-template-columns: revert;
+        grid-auto-columns: 85%;
+        .post-container {
+            grid-area: span 5 / span 1;
+            @include media-breakpoint-up(md) {
+                grid-area: span 3 / span 4;
+            }
+            @include media-breakpoint-up(lg) {
+                grid-area: span 3 / span 2;
+                &:nth-of-type(1) {
+                    grid-area: span 8 / span 4;
+                    h3 {
+                        font-size: 1.5rem;
+                    }
+                    .excerpt {
+                        display: block;
+                    }
+                }
+                &:nth-of-type(2)  {
+                    grid-area: span 5 / span 4;
+                    h3 {
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+        }
+        @include media-breakpoint-up(md) {
+            grid-gap: 4px;
+            grid-auto-flow: row;
+            overflow-x: auto;
+            grid-auto-columns: unset;
+            grid-template-rows: repeat(8, 50px);
+            grid-template-columns: repeat(8, 1fr);
         }
     }
 }

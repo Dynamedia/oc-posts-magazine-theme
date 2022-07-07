@@ -2,7 +2,7 @@
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-column-gap: 4px;
-    grid-row-gap: 4px;
+    grid-row-gap: 15px;
     margin-bottom: 15px;
     .post-container {
         grid-column: span 12;
@@ -11,6 +11,7 @@
     }
 
     @include media-breakpoint-up(md) {
+        grid-row-gap: 4px;
         &.columns-2 .post-container {
             grid-column: span 6;
         }

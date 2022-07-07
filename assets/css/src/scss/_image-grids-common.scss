@@ -1,5 +1,6 @@
 .image-grid {
-    .box {
+    .post-container {
+        overflow: hidden;
         a img {
             width: 100%;
             min-width: 100%;
@@ -28,25 +29,6 @@
                 transition: text-shadow 200ms ease-out;
             }
 
-
-            a.category-badge {
-                display: inline-block;
-                padding: 4px;
-                border-radius: 2px;
-                transition: background-color 400ms ease-out;
-                background-color: rgba(0, 0, 0, 0.5);
-                pointer-events: all;
-                color: #fff;
-
-                &:hover {
-                    text-decoration: none;
-                }
-                &:focus {
-                    background-color: $primary;
-                }
-            }
-
-
             .author {
                 font-size: 0.7rem;
 
@@ -66,7 +48,7 @@
 
         &:hover, &:focus {
             .info {
-                a.category-badge {
+                a.taxonomy-badge {
                     background-color: $primary;
                     &:hover {
                         text-decoration: underline;

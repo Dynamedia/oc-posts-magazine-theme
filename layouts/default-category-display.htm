@@ -12,12 +12,13 @@ code = "main-navigation"
 {# The component is attached to the page but we can use it here for more customisation #}
         {% set displayCategoryComponent = this.page.components.displayCategory %}
         {% set category = displayCategoryComponent.category %}
+        {% set parentCategory = category.getParents | last %}
         {% set posts = displayCategoryComponent.posts %}
 
         {# Split the posts into groups for a nice display, if there are enough otherwise just a list  #}
-        {% if posts | length >= 9 %}
-            {% set firstBlock = posts | slice(1,5) %}
-            {% set postsList = posts | slice(6) %}
+        {% if posts | length >= 6 %}
+            {% set firstBlock = posts | slice(0,4) %}
+            {% set postsList = posts | slice(4) %}
         {% else %}
             {% set postsList = posts %}
         {% endif %}
@@ -33,13 +34,26 @@ code = "main-navigation"
 
             {% partial 'layout/common/header' %}
 
-            <div class="taxonomy-banner" style="background-image: url('{{ category.images.banner.default | media }}')">
+            {% if category.images.banner.default %}
+                <div class="full-banner" style="background-image: url('{{ category.images.banner.default | media }}')">
+            {% else %}
+                <div class="full-banner no-image">
+            {% endif %}
 
                 <div class="layout-container inner">
+                    {% if parentCategory %}
+                    <div class="related-categories parent">
+                        <ul class="unstyled inline">
+                            <li><a href="{{ parentCategory.url }}">{{ parentCategory.name }}</a></li>
+                        </ul>
+                    </div>
+                    {% endif %}
+
                     <h1>{{ category.name | upper }}</h1>
+
                     {% if category.children | length %}
-                        <div class="related-categories">
-                            <ul>
+                        <div class="related-categories sub">
+                            <ul class="unstyled inline">
                             {% for category in category.children %}
                                 <li><a href="{{ category.url }}">{{ category.name }}</a></li>
                             {% endfor %}
@@ -56,14 +70,15 @@ code = "main-navigation"
 
                 <div class="layout-container">
 
-                    <article class="taxonomy">
+                    <article class="content-body taxonomy">
                         {{ category.body.renderAllPages() | raw }}
                     </article>
 
                     {% if firstBlock %}
                     <div class="content-container">
-                        {% partial "postLists/heroImageTextGrid"
+                        {% partial "postLists/heroImageList"
                             posts=firstBlock
+                            badge="tag"
                         %}
                     </div>
                     {% endif %}
